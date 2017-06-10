@@ -1,0 +1,27 @@
+/***1***/
+/**
+ * @param {number} x
+ * @param {number} y
+ * @return {number}
+ * 推荐看下 http://www.cnblogs.com/grandyang/p/6201215.html
+ */
+var hammingDistance = function(x, y) {
+        var res = 0, exc = x ^ y;
+        while (exc) {
+            ++res;
+            exc &= (exc - 1);
+        }
+        return res;
+    
+};
+
+/***2***/
+/**
+ * @param {number} x
+ * @param {number} y
+ * @return {number}
+ */
+var hammingDistance = function(x, y) {
+    if(x^y==0) return 0;
+    return (x^y)%2+hammingDistance(x/2,y/2);
+};
